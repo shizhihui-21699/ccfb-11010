@@ -16,3 +16,9 @@ node_modules/
 __pycache__/
 .venv/
 venv/
+
+# Rust build output
+/target/
+
+# Runtime state created by the tool itself
+.ransomwatch/

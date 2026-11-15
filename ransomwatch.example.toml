@@ -1,0 +1,212 @@
+# ransomwatch configuration.
+#
+# Load with:  ransomwatch watch --config ransomwatch.example.toml
+# Every value below is a default; delete anything you do not want to override.
+#
+# The three numbers that decide how sensitive the tool is:
+#
+#   detect.min_score   points needed inside the window (default 8).
+#                      A lone encrypted file is 5, a lone ransom note is 6,
+#                      a stacked-extension rename is 6 — none fires alone.
+#   detect.min_files   distinct files needed (default 3). A ransom note lowers
+#                      this to 1, because the note is itself corroboration.
+#   entropy.high_entropy_h0  H0 needed to call a sample ciphertext (7.85).
+#                      Lowering it toward 7.0 starts classifying dense binaries
+#                      as opaque; raising it above 7.95 misses short samples.
+#
+# To tune for your site: run with --duration 60 --fail-on-incident over a real
+# backup and confirm zero incidents, then lower min_score one point at a time.
+
+[watch]
+roots = []
+exclude_paths = [
+    "~/Library/Caches",
+    "/private/var/folders",
+    "/System",
+]
+exclude_globs = [
+    "*.tmp",
+    "*.temp",
+    "*.swp",
+    "*.swo",
+    "*.lock",
+    "*.part",
+    "*.crdownload",
+    "*.download",
+    "*.partial",
+    "*~",
+    ".DS_Store",
+    "~$*",
+    ".git",
+    "*/.git",
+]
+follow_symlinks = false
+scan_on_start = true
+max_scan_files = 200000
+max_sample_bytes = 41943040
+
+[entropy]
+sample_bytes = 65536
+high_entropy_h0 = 7.85
+high_entropy_floor = 7.0
+uniform_chi2_z_max = 12.0
+min_distinct_for_opaque = 170
+text_printable_ratio = 0.9
+text_max_h0 = 6.5
+min_file_bytes = 16
+
+[detect]
+window_secs = 30
+min_score = 8.0
+min_files = 3
+bulk_modify_files = 20
+bulk_window_secs = 10
+bulk_rename_files = 8
+min_entropy_bytes = 1024
+rename_pair_ms = 2000
+weight_opaque_rewrite = 5.0
+weight_opaque_new_doc = 3.0
+weight_stacked_ext = 6.0
+weight_suspicious_rename = 4.0
+weight_ransom_note = 6.0
+weight_bulk_rename = 3.0
+weight_bulk_modify = 2.0
+decoy_immediate = true
+warmup_secs = 0
+
+[decoy]
+enabled = true
+plant_in_roots = true
+subdir = ""
+count = 6
+paths = []
+poll_ms = 500
+holder_sweep_ms = 250
+manifest_dir = "~/.ransomwatch/decoys"
+alert_on_read = true
+alert_on_remove = true
+names = [
+    "Q3-budget-2026.xlsx",
+    "客户合同-2026-终稿.docx",
+    "payroll-november.xlsx",
+    "董事会会议纪要.docx",
+    "project-atlas-pricing.xlsx",
+    "supplier-list-2026.csv",
+    "merger-due-diligence.pdf",
+    "员工花名册.xlsx",
+]
+
+[response]
+mode = "suspend"
+suspend_children = true
+never_suspend = [
+    "Terminal",
+    "iTerm2",
+    "Warp",
+    "bash",
+    "zsh",
+    "sh",
+    "loginwindow",
+    "WindowServer",
+    "launchd",
+    "kernel_task",
+]
+copy_evidence_files = 16
+evidence_max_bytes = 16777216
+evidence_total_bytes = 268435456
+incident_dir = "~/.ransomwatch/incidents"
+cooldown_secs = 60
+
+[trust]
+tools = [
+    "tar",
+    "bsdtar",
+    "gtar",
+    "gzip",
+    "gunzip",
+    "bzip2",
+    "bunzip2",
+    "xz",
+    "unxz",
+    "zstd",
+    "lz4",
+    "7z",
+    "7za",
+    "7zz",
+    "zip",
+    "unzip",
+    "rar",
+    "unrar",
+    "ditto",
+    "cp",
+    "mv",
+    "rsync",
+    "dsync",
+    "pax",
+    "cpio",
+    "tmutil",
+    "backupd",
+    "backupd-helper",
+    "Time Machine",
+    "mds",
+    "mdworker",
+    "mdworker_shared",
+    "mds_stores",
+    "Spotlight",
+    "Arq",
+    "Backblaze",
+    "Carbon Copy Cloner",
+    "restic",
+    "borg",
+    "duplicacy",
+    "duplicati",
+    "rclone",
+    "shasum",
+    "md5",
+    "fs_usage",
+    "sandboxd",
+]
+crypto_tools = [
+    "gpg",
+    "gpg2",
+    "openssl",
+    "age",
+    "enc",
+    "7z",
+]
+crypto_exts = [
+    "gpg",
+    "pgp",
+    "age",
+    "asc",
+    "enc",
+    "crypt",
+]
+trust_apple_signed = true
+interpreters = [
+    "bash",
+    "zsh",
+    "sh",
+    "dash",
+    "ksh",
+    "csh",
+    "tcsh",
+    "fish",
+    "python",
+    "python3",
+    "ruby",
+    "perl",
+    "node",
+    "php",
+    "osascript",
+    "swift",
+    "ruby2.6",
+    "java",
+]
+use_codesign = true
+trusted_exe_prefixes = []
+
+[output]
+jsonl = "~/.ransomwatch/incidents/incidents.jsonl"
+level = "info"
+color = true
