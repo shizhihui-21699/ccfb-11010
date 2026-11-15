@@ -1,0 +1,72 @@
+watch_dirs = []
+trusted_processes = [
+    "tar",
+    "gtar",
+    "gzip",
+    "gunzip",
+    "bzip2",
+    "bunzip2",
+    "xz",
+    "unxz",
+    "zstd",
+    "unzstd",
+    "zip",
+    "unzip",
+    "7z",
+    "7za",
+    "rsync",
+    "ditto",
+    "ar",
+    "restic",
+    "borg",
+    "borgbackup",
+    "backupd",
+    "tmutil",
+    "rclone",
+]
+note_name_hints = [
+    "readme",
+    "decrypt",
+    "recover",
+    "ransom",
+    "restore",
+    "how_to",
+    "locked",
+    "read_me",
+    "your_files",
+]
+note_content_markers = [
+    "your files have been encrypted",
+    "all your files",
+    "bitcoin",
+    "btc address",
+    "ransom",
+    "decryption key",
+    "decrypt your files",
+    "pay the",
+    "wallet",
+    "aes-256",
+    "rsa-2048",
+    "do not attempt",
+]
+canary_names = [
+    "CANARY_README.txt",
+    "quarterly_report_2026.docx",
+    "vacation_plan.csv",
+    "client_contacts.xlsx",
+    "family_photos.jpg",
+]
+extra_canaries = []
+
+[thresholds]
+window_secs = 60
+min_file_size = 256
+high_entropy = 7.4
+entropy_delta = 1.5
+entropy_event_count = 8
+entropy_event_ratio = 0.6
+extension_event_count = 6
+extension_event_ratio = 0.4
+score_warning = 60
+score_critical = 80
+cooldown_secs = 45
