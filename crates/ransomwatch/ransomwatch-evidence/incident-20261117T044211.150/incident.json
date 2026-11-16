@@ -1,0 +1,62 @@
+{
+  "incident": {
+    "score": 100,
+    "signals": [
+      {
+        "kind": "DecoyTrip",
+        "detail": "x",
+        "sample_paths": [],
+        "count": 1
+      }
+    ],
+    "top_paths": [],
+    "observed_bytes": 0
+  },
+  "suspects": [
+    {
+      "pid": 7129,
+      "ppid": 1,
+      "name": "WallpaperAerialsExtension",
+      "exe": "/System/Library/ExtensionKit/Extensions/WallpaperAerialsExtension.appex/Contents/MacOS/WallpaperAerialsExtension",
+      "uid": 501,
+      "bytes_written": 0,
+      "bytes_read": 2015232,
+      "logical_writes": 0,
+      "recent_written": 0,
+      "recent_read": 2015232,
+      "reasons": [
+        "read 1.9 MiB during a decoy trip (peak 1.9 MiB over 0.1s)"
+      ],
+      "held_open": [],
+      "depth": 0,
+      "alive": true,
+      "age_ms": 284459728
+    }
+  ],
+  "actions": [],
+  "captured_at": "2026-11-17T04:42:11.150274+08:00",
+  "watch_roots": [],
+  "processes": [
+    {
+      "pid": 7129,
+      "ppid": 1,
+      "name": "WallpaperAerialsExtension",
+      "exe": "/System/Library/ExtensionKit/Extensions/WallpaperAerialsExtension.appex/Contents/MacOS/WallpaperAerialsExtension",
+      "uid": 501,
+      "bytes_written": 236429312,
+      "bytes_read": 118357737472,
+      "logical_writes": 239853568,
+      "recent_written": 0,
+      "recent_read": 2015232,
+      "stopped": false,
+      "open_files": [
+        "/dev/null (r)",
+        "/dev/null (w)",
+        "/dev/null (w)",
+        "/Users/shizhihui/Library/Application Support/com.apple.wallpaper/aerials/videos/B13D40FC-C033-436D-A197-185900EC3552.mov (r)"
+      ]
+    }
+  ],
+  "files": [],
+  "decoy_trips": []
+}

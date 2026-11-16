@@ -1,0 +1,93 @@
+# ransomwatch configuration
+#
+# Every key shown here is optional; omitted keys keep their defaults (run
+# `ransomwatch --path DIR print-config` for the full set).  Unknown keys are
+# rejected, so a typo fails loudly instead of being silently ignored.
+#
+# Durations are strings: "500ms", "10s", "5m", "1h".
+
+[watch]
+# Directories to monitor recursively.  Relative paths resolve against this
+# file's directory.
+paths = ["/Users/you/Documents", "/Users/you/Projects"]
+# paths = ["./data"]          # relative to the config file
+
+[detection]
+# Shannon entropy in bits/byte.  Plain text sits near 4, compressed archives
+# and ciphertext near 8.  7.2 leaves room for small samples while keeping
+# ordinary text and source code well clear.
+high_entropy = 7.2
+plain_entropy = 6.2
+
+# Sliding window and breadth thresholds.  Bursts are counted over *distinct*
+# files, so a loop over one file cannot inflate them.
+window = "10s"
+entropy_burst_files = 5    # plaintext files rewritten to ciphertext
+rewrite_burst_files = 10   # existing files rewritten at all
+rename_burst_files = 8     # renamed files sharing one new extension
+ransom_ext_files = 3       # files with known ransomware extensions
+delete_burst_files = 15    # files removed
+mass_touch_files = 25      # any distinct paths changed
+
+# One extension must cover this fraction of the renamed set before the
+# extension signal counts (scattered .bak/.tmp renames stay below it).
+extension_dominance = 0.6
+
+# Aggregate score at which an incident opens.  A single entropy burst is ~55;
+# an extension change ~45; a ransom note ~50; a decoy write is immediate.
+incident_score = 50
+cooldown_secs = 30
+
+[decoy]
+enabled = true
+count_per_root = 4
+subdir = "__rw_decoys"
+file_bytes = 49152
+
+# Reading a decoy is an intrusion signal (it needs an encryption burst to
+# corroborate).  Writing, renaming or deleting one is decisive.
+trip_on_read = true
+trip_on_write = true
+trip_on_rename = true
+trip_on_delete = true
+
+poll_interval = "2s"          # atime polling; reads are not reported by FSEvents
+arm_after = "3s"              # settle time before a new decoy can trip
+self_write_quiet = "750ms"    # ignore our own decoy rewrites
+
+[response]
+suspend = true                # SIGSTOP the attributed process
+dry_run = false               # true = detect and attribute, never actuate
+evidence_dir = "./ransomwatch-evidence"
+attribution_deadline_ms = 1500
+
+# Optional: run a command on incident, with the incident JSON on stdin.
+# on_incident_command = "/usr/local/bin/page-oncall"
+
+# Never suspend these process names, whatever the evidence.  The defaults
+# cover system daemons, shells and the tools in `allow_processes`.
+# never_suspend = ["Terminal", "iTerm2"]
+
+[scan]
+baseline_on_start = true
+baseline_max_files = 200000
+max_sample_bytes = 4294967296      # 4 GiB: bigger files are metadata-only
+reconcile_interval = "5m"          # full re-walk to catch dropped events
+
+[log]
+# path = "./ransomwatch.jsonl"
+jsonl = true
+verbose = false
+
+# Process names that are never blamed.  Matched as case-insensitive substrings
+# of the executable basename; the defaults already cover Time Machine, rsync,
+# restic, Borg, Dropbox, git, every common archiver, and the compilers and
+# media tools that rewrite many files.  Extend it for your environment.
+# allow_processes = ["my-backup-agent", "aftereffects"]
+
+# Directory names never descended into.  Matched against path components
+# *below* the watch root, so a root itself named "build" still works.
+# ignore_dirs = ["node_modules", ".git", "target"]
+
+# Path suffixes never evaluated.
+# ignore_suffixes = [".tmp", ".part", ".crdownload"]

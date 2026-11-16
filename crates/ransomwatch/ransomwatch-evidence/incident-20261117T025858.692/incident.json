@@ -1,0 +1,21 @@
+{
+  "incident": {
+    "score": 100,
+    "signals": [
+      {
+        "kind": "DecoyTrip",
+        "detail": "x",
+        "sample_paths": [],
+        "count": 1
+      }
+    ],
+    "top_paths": []
+  },
+  "suspects": [],
+  "actions": [],
+  "captured_at": "2026-11-17T02:58:58.692642+08:00",
+  "watch_roots": [],
+  "processes": [],
+  "files": [],
+  "decoy_trips": []
+}

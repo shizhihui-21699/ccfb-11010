@@ -1,0 +1,11 @@
+{
+  "actuated": false,
+  "captured_unix": 1794861731,
+  "signals": [
+    "decoy_trip"
+  ],
+  "suspects": [
+    7129
+  ],
+  "version": "0.1.0"
+}

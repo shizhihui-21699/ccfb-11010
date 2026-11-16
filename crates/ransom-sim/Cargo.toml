@@ -1,0 +1,20 @@
+[package]
+name = "ransom-sim"
+description = "Guarded ransomware / benign-workload simulator used to test ransomwatch"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[[bin]]
+name = "ransom-sim"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1.0.104"
+chacha20 = "0.9.1"
+cipher = "0.4.4"
+clap = { version = "4.6.7", features = ["derive"] }
+getrandom = "0.2.17"
+walkdir = "2.5.0"

@@ -1,0 +1,134 @@
+{
+  "incident": {
+    "score": 91,
+    "signals": [
+      {
+        "kind": "EntropyBurst",
+        "detail": "5 plaintext files rewritten to high entropy in 0.0s",
+        "sample_paths": [
+          "/private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpgpfIOg/docs/report0.txt",
+          "/private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpgpfIOg/docs/report1.txt",
+          "/private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpgpfIOg/docs/report2.txt",
+          "/private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpgpfIOg/docs/report3.txt",
+          "/private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpgpfIOg/docs/report4.txt"
+        ],
+        "count": 5
+      },
+      {
+        "kind": "PlaintextToCiphertext",
+        "detail": "plaintext rewritten to high entropy (3.99 -> 7.99 bits/byte)",
+        "sample_paths": [
+          "/private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpgpfIOg/docs/report4.txt"
+        ],
+        "count": 1
+      }
+    ],
+    "top_paths": [
+      "/private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpgpfIOg/docs/report0.txt",
+      "/private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpgpfIOg/docs/report1.txt",
+      "/private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpgpfIOg/docs/report2.txt",
+      "/private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpgpfIOg/docs/report3.txt",
+      "/private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpgpfIOg/docs/report4.txt"
+    ],
+    "observed_bytes": 100000
+  },
+  "suspects": [
+    {
+      "pid": 21777,
+      "ppid": 1,
+      "name": "flowbeacon",
+      "exe": "/Users/shizhihui/ccfb/runs/11491/workspace/flowbeacon/target/release/flowbeacon",
+      "uid": 501,
+      "bytes_written": 65536,
+      "bytes_read": 0,
+      "logical_writes": 65536,
+      "recent_written": 65536,
+      "recent_read": 0,
+      "reasons": [
+        "wrote 64.0 KiB in a 0.1s window spanning the incident"
+      ],
+      "held_open": [],
+      "depth": 0,
+      "alive": true,
+      "age_ms": 5538726
+    }
+  ],
+  "actions": [],
+  "captured_at": "2026-11-17T05:04:44.410162+08:00",
+  "watch_roots": [
+    "/private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpgpfIOg"
+  ],
+  "processes": [
+    {
+      "pid": 21777,
+      "ppid": 1,
+      "name": "flowbeacon",
+      "exe": "/Users/shizhihui/ccfb/runs/11491/workspace/flowbeacon/target/release/flowbeacon",
+      "uid": 501,
+      "bytes_written": 22601728,
+      "bytes_read": 69632,
+      "logical_writes": 101228544,
+      "recent_written": 65536,
+      "recent_read": 0,
+      "stopped": false,
+      "open_files": [
+        "/dev/null (r)",
+        "/private/tmp/fb_listen.log (w)",
+        "/private/tmp/fb_listen.log (w)"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "/private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpgpfIOg/docs/report0.txt",
+      "exists": true,
+      "size": 20000,
+      "mtime": "2026-11-17T05:04:43.739745730+08:00",
+      "extension": "txt",
+      "sample_entropy": 7.9900126,
+      "first_bytes_hex": "c32411c6434af6d66a1e7fccbd5cc389",
+      "note_language": false
+    },
+    {
+      "path": "/private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpgpfIOg/docs/report1.txt",
+      "exists": true,
+      "size": 20000,
+      "mtime": "2026-11-17T05:04:43.741683994+08:00",
+      "extension": "txt",
+      "sample_entropy": 7.9900126,
+      "first_bytes_hex": "c32411c6434af6d66a1e7fccbd5cc389",
+      "note_language": false
+    },
+    {
+      "path": "/private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpgpfIOg/docs/report2.txt",
+      "exists": true,
+      "size": 20000,
+      "mtime": "2026-11-17T05:04:43.743710133+08:00",
+      "extension": "txt",
+      "sample_entropy": 7.9900126,
+      "first_bytes_hex": "c32411c6434af6d66a1e7fccbd5cc389",
+      "note_language": false
+    },
+    {
+      "path": "/private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpgpfIOg/docs/report3.txt",
+      "exists": true,
+      "size": 20000,
+      "mtime": "2026-11-17T05:04:43.745675481+08:00",
+      "extension": "txt",
+      "sample_entropy": 7.9900126,
+      "first_bytes_hex": "c32411c6434af6d66a1e7fccbd5cc389",
+      "note_language": false
+    },
+    {
+      "path": "/private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpgpfIOg/docs/report4.txt",
+      "exists": true,
+      "size": 20000,
+      "mtime": "2026-11-17T05:04:43.747606161+08:00",
+      "extension": "txt",
+      "sample_entropy": 7.9900126,
+      "first_bytes_hex": "c32411c6434af6d66a1e7fccbd5cc389",
+      "note_language": false
+    }
+  ],
+  "decoy_trips": []
+}

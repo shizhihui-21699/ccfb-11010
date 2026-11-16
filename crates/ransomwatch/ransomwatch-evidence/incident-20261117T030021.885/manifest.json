@@ -1,0 +1,9 @@
+{
+  "actuated": false,
+  "captured_unix": 1794855621,
+  "signals": [
+    "decoy_trip"
+  ],
+  "suspects": [],
+  "version": "0.1.0"
+}

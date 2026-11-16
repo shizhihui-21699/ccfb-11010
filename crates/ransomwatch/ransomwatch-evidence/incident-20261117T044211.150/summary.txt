@@ -1,0 +1,20 @@
+RANSOMWATCH INCIDENT
+captured: 2026-11-17T04:42:11.150274+08:00
+score: 100
+dry_run: false
+
+Signals:
+  - decoy_trip                       +500  x
+
+Blamed processes (ranked by confidence):
+  pid 7129 (WallpaperAerialsExtension) ppid 1 uid 501 conf 0 depth 0
+    wrote 0 B (0 B) read 1.9 MiB
+    reasons: read 1.9 MiB during a decoy trip (peak 1.9 MiB over 0.1s)
+    held open: 
+
+Actions:
+  (none)
+
+Evidence paths:
+
+Decoy trips:

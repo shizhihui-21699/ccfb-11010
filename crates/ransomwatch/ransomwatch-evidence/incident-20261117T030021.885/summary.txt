@@ -1,0 +1,16 @@
+RANSOMWATCH INCIDENT
+captured: 2026-11-17T03:00:21.886090+08:00
+score: 100
+dry_run: false
+
+Signals:
+  - decoy_trip                       +500  x
+
+Blamed processes (ranked by confidence):
+
+Actions:
+  (none)
+
+Evidence paths:
+
+Decoy trips:

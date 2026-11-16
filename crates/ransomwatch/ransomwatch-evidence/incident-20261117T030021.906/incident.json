@@ -1,0 +1,94 @@
+{
+  "incident": {
+    "score": 91,
+    "signals": [
+      {
+        "kind": "EntropyBurst",
+        "detail": "5 plaintext files rewritten to high entropy in 0.0s",
+        "sample_paths": [
+          "/private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpNsMBeV/docs/report0.txt",
+          "/private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpNsMBeV/docs/report1.txt",
+          "/private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpNsMBeV/docs/report2.txt",
+          "/private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpNsMBeV/docs/report3.txt",
+          "/private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpNsMBeV/docs/report4.txt"
+        ],
+        "count": 5
+      },
+      {
+        "kind": "PlaintextToCiphertext",
+        "detail": "plaintext rewritten to high entropy (3.99 -> 7.99 bits/byte)",
+        "sample_paths": [
+          "/private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpNsMBeV/docs/report4.txt"
+        ],
+        "count": 1
+      }
+    ],
+    "top_paths": [
+      "/private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpNsMBeV/docs/report0.txt",
+      "/private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpNsMBeV/docs/report1.txt",
+      "/private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpNsMBeV/docs/report2.txt",
+      "/private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpNsMBeV/docs/report3.txt",
+      "/private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpNsMBeV/docs/report4.txt"
+    ]
+  },
+  "suspects": [],
+  "actions": [],
+  "captured_at": "2026-11-17T03:00:21.915309+08:00",
+  "watch_roots": [
+    "/private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpNsMBeV"
+  ],
+  "processes": [],
+  "files": [
+    {
+      "path": "/private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpNsMBeV/docs/report0.txt",
+      "exists": true,
+      "size": 20000,
+      "mtime": "2026-11-17T03:00:21.827573307+08:00",
+      "extension": "txt",
+      "sample_entropy": 7.9900126,
+      "first_bytes_hex": "c32411c6434af6d66a1e7fccbd5cc389",
+      "note_language": false
+    },
+    {
+      "path": "/private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpNsMBeV/docs/report1.txt",
+      "exists": true,
+      "size": 20000,
+      "mtime": "2026-11-17T03:00:21.830534370+08:00",
+      "extension": "txt",
+      "sample_entropy": 7.9900126,
+      "first_bytes_hex": "c32411c6434af6d66a1e7fccbd5cc389",
+      "note_language": false
+    },
+    {
+      "path": "/private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpNsMBeV/docs/report2.txt",
+      "exists": true,
+      "size": 20000,
+      "mtime": "2026-11-17T03:00:21.833411391+08:00",
+      "extension": "txt",
+      "sample_entropy": 7.9900126,
+      "first_bytes_hex": "c32411c6434af6d66a1e7fccbd5cc389",
+      "note_language": false
+    },
+    {
+      "path": "/private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpNsMBeV/docs/report3.txt",
+      "exists": true,
+      "size": 20000,
+      "mtime": "2026-11-17T03:00:21.836152661+08:00",
+      "extension": "txt",
+      "sample_entropy": 7.9900126,
+      "first_bytes_hex": "c32411c6434af6d66a1e7fccbd5cc389",
+      "note_language": false
+    },
+    {
+      "path": "/private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpNsMBeV/docs/report4.txt",
+      "exists": true,
+      "size": 20000,
+      "mtime": "2026-11-17T03:00:21.838768014+08:00",
+      "extension": "txt",
+      "sample_entropy": 7.9900126,
+      "first_bytes_hex": "c32411c6434af6d66a1e7fccbd5cc389",
+      "note_language": false
+    }
+  ],
+  "decoy_trips": []
+}

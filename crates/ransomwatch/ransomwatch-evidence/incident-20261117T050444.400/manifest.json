@@ -1,0 +1,12 @@
+{
+  "actuated": false,
+  "captured_unix": 1794863084,
+  "signals": [
+    "entropy_burst",
+    "plaintext_to_ciphertext"
+  ],
+  "suspects": [
+    21777
+  ],
+  "version": "0.1.0"
+}

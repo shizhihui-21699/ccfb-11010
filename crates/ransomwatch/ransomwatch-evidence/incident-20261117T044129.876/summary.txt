@@ -1,0 +1,20 @@
+RANSOMWATCH INCIDENT
+captured: 2026-11-17T04:41:29.878173+08:00
+score: 100
+dry_run: false
+
+Signals:
+  - decoy_trip                       +500  x
+
+Blamed processes (ranked by confidence):
+  pid 7314 (Lark Helper) ppid 7068 uid 501 conf 8 depth 0
+    wrote 64.0 KiB (64.0 KiB) read 0 B
+    reasons: wrote 64.0 KiB in a 0.1s window spanning the incident
+    held open: 
+
+Actions:
+  (none)
+
+Evidence paths:
+
+Decoy trips:

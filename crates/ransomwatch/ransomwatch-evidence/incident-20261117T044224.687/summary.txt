@@ -1,0 +1,22 @@
+RANSOMWATCH INCIDENT
+captured: 2026-11-17T04:42:24.697113+08:00
+score: 91
+dry_run: false
+
+Signals:
+  - entropy_burst                    +59   5 plaintext files rewritten to high entropy in 0.0s
+  - plaintext_to_ciphertext          +32   plaintext rewritten to high entropy (3.99 -> 7.99 bits/byte)
+
+Blamed processes (ranked by confidence):
+
+Actions:
+  (none)
+
+Evidence paths:
+  /private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpzjMf0P/docs/report0.txt
+  /private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpzjMf0P/docs/report1.txt
+  /private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpzjMf0P/docs/report2.txt
+  /private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpzjMf0P/docs/report3.txt
+  /private/var/folders/1s/gym9qqyx0b51fx91c0mfpt180000gn/T/.tmpzjMf0P/docs/report4.txt
+
+Decoy trips:
